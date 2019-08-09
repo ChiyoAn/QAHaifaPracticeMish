@@ -13,10 +13,14 @@ public class HomePageHelper extends PageBase {
     @FindBy (id = "idtitletypesearchevents")
     WebElement listEventsItem;
 
-
-
     public HomePageHelper(WebDriver driver){
         super(driver);
+    }
+
+    @Override
+    public void waitUntilPageIsLoaded() {
+        waitUntilElementIsLoaded(
+                driver,listEventsItem,30);
     }
 
     public String getListEventsItemText() {
@@ -24,7 +28,10 @@ public class HomePageHelper extends PageBase {
     }
 
     public String getHomePageTitle() {
+
         return driver.getTitle();
     }
+
+
 
 }

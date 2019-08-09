@@ -16,6 +16,7 @@ public class HomePageTests extends TestBase{
     }
     @Test
     public void testIfHomePageisLoaded(){
+
         Assert.assertEquals("List events", homePage.getListEventsItemText());
     }
 
