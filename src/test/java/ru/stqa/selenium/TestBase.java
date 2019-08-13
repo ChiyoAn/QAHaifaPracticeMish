@@ -24,6 +24,8 @@ public class TestBase {
   protected static Capabilities capabilities;
 
   protected WebDriver driver;
+  public static final String LOGIN = "marinaA";
+  public static final String PASSWORD = "marina1!";
 
   @BeforeSuite
   public void initTestSuite() throws IOException {

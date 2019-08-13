@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import ru.stqa.selenium.pages.HomePageAuthHelper;
 import ru.stqa.selenium.pages.HomePageHelper;
 import ru.stqa.selenium.pages.LoginPageHelper;
+import ru.stqa.selenium.util.DataProviders;
 
 public class LoginPageTests extends TestBase{
 
@@ -26,9 +27,9 @@ public class LoginPageTests extends TestBase{
         homePage.waitUntilPageIsLoaded();
         loginPage.openLoginPage();
     }
-    @Test
-    public void loginPositive(){
-        loginPage.loginToSystem(LOGIN,PASSWORD);
+    @Test(dataProviderClass = DataProviders.class, dataProvider = "randomUsers")
+    public void loginPositive(String login, String password){
+        loginPage.loginToSystem(login,password);
         homePageAuth.waitUntilPageIsLoaded();
         Assert.assertTrue(homePageAuth.isHomaPageAuth());
 
